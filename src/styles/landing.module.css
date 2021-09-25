@@ -23,6 +23,7 @@
 .landing__inside h3{
     font-size: 40px;
     color: white;
+    font-family: 'Ubuntu', sans-serif;
 }
 
 .landing__inside button {
