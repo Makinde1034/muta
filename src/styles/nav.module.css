@@ -1,0 +1,48 @@
+.nav{
+    height: 60px;
+    background-color: #2D1D28;
+    display: flex;
+    align-items: center;
+    padding-left: 20px;
+    padding-right: 20px;
+    justify-content: space-between;
+}
+
+.nav__logo h3{
+    color: white;
+    font-size: 25px;
+    font-family: 'Lobster', cursive;
+}
+
+.nav ul {
+    width: 30%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    list-style: none;
+}
+
+.nav ul li {
+    color: white;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.cart{
+    height: 40px;
+    width: 150px;
+    border: 1px solid white;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.cart p{
+    font-weight: 800;
+}
+
+.cart img{
+    height: 20px;
+}
