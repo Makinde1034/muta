@@ -28,6 +28,11 @@
     cursor: pointer;
 }
 
+a{
+    color: white;
+    text-decoration: none;
+}
+
 .cart{
     height: 40px;
     width: 150px;
