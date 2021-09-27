@@ -25,6 +25,7 @@ export const getUserFailure = (error) => {
 
 export const fetchProducts =() => {
     return (dispatch) => {
+        dispatch(getProducts)
             api.getProduct()
             .then((res)=>{
             console.log(res);

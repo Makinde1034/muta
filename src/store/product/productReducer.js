@@ -2,7 +2,7 @@ import { FETCH_PRODUCTS, FETCH_PRODUCTS_FAILURE, FETCH_PRODUCTS_SUCCESS } from "
 
 const initialState = {
     products : [],
-    loading : false
+    loading : false,
 }
 
 const productReducer = (state = initialState, action) => {
@@ -15,12 +15,14 @@ const productReducer = (state = initialState, action) => {
         case FETCH_PRODUCTS_SUCCESS:
             return {
                 loading : false,
-                products : action.payload
+                products : action.payload,
+        
 
             }
         case FETCH_PRODUCTS_FAILURE:
             return {
-                loading : false
+                loading : true,
+                products: []
             }
         default: return state
            

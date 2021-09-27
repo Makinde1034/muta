@@ -10,14 +10,20 @@ function Featured() {
     const products = useSelector((state)=>state.productReducer.products)
     const loading = useSelector((state)=>state.productReducer.loading)
 
+     const loader = <div className={style.loader}></div>
+
     const featured = products.slice(3,5).map((i)=>(
         <div className={style.featured__products__box}>
             <div className={style.featured__products__box__img}>
-                <img src={i.image} alt="" />
+                <img src={i.image} alt="product image" /> 
             </div>
-            <h2>{i.name}</h2>
+            <p>{i.name}</p>
+            <h2>&#163;{i.price}</h2>
+            <button>Add to cart</button>
         </div>
     ))
+
+   
 
 
     return (
@@ -25,8 +31,8 @@ function Featured() {
             <div className={style.featured}>
                 <div className={style.featured__inside}>
                     <div className={style.featured__inside__left}>
-                        <div className={style.featured__products}>
-                            {featured}
+                        <div className={ loading ? style.featured__products__loading : style.featured__products  }>
+                            { loading ? loader : featured }
                         </div>
                     </div>
                     <div className={style.featured__inside__right}>

@@ -4,8 +4,14 @@ import Home from './pages/home.js'
 import { Route, Switch } from 'react-router-dom'
 import SignUp from './pages/sign_up';
 import SignIn from './pages/sign_in'
+import {useSelector} from 'react-redux'
+import cart from './assets/trolley.d9c304ca.d9c304ca.svg'
+
 
 function App() {
+
+
+
   return (
     <div className="App">
       <Nav />
@@ -16,6 +22,10 @@ function App() {
       </Switch>
     </div>
   );
+  
+ 
+ 
 }
+
 
 export default App;
