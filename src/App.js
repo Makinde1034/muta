@@ -4,8 +4,7 @@ import Home from './pages/home.js'
 import { Route, Switch } from 'react-router-dom'
 import SignUp from './pages/sign_up';
 import SignIn from './pages/sign_in'
-import {useSelector} from 'react-redux'
-import cart from './assets/trolley.d9c304ca.d9c304ca.svg'
+import ProtectedRoute from './pages/protected_route';
 
 
 function App() {
@@ -17,8 +16,8 @@ function App() {
       <Nav />
       <Switch>
         <Route path='/' exact component={Home}  />
-        <Route path='/signup' component={SignUp}  />
-        <Route path='/signin' component={SignIn}  />
+        <ProtectedRoute path='/signup' component={SignUp}  />
+        <ProtectedRoute path='/signin' component={SignIn}  />
       </Switch>
     </div>
   );

@@ -1,12 +1,20 @@
-import React from 'react'
+import React,{ useEffect } from 'react'
 import style from '../styles/nav.module.css'
 import cart from '../assets/trolley.d9c304ca.d9c304ca.svg'
 import {Link} from 'react-router-dom'
 import {useSelector,useDispatch} from 'react-redux'
+import storage from '../utils/storage'
 
 function Nav() {
 
     const test = useSelector((state) => state.productReducer.products);
+    const user = useSelector((state)=> state.authReducer.user);
+    const status = useSelector((state)=>state.authReducer.status);
+
+    
+    useEffect(()=>{
+
+    });
 
     return (
         <nav className={style.nav}>
@@ -16,13 +24,18 @@ function Nav() {
                 </Link>
             </div>
             <ul>
-                <Link to="/signin">Sign in</Link>
-                <Link to='/signup'>Sign up</Link>
+                { user !== '' ? '' : <Link to="/signin">Sign in</Link> }
+                { user !== '' ? '' : <Link to="/signup">Sign up</Link> }
                 <li className={style.cart}>
-                    <p>Cart</p>
                     <img src={cart} alt="" />
+                    <div className={style.cart__counter}>0</div>
                 </li>
+                <div className={style.email}>
+                    { user !=='' ? <p>{ JSON.parse(user).email }</p> : '' }
+                </div>
+                <p style={{color:"white",fontWeight:"bold"}}>Log out</p>
             </ul>
+            
         </nav>
     )
 }

@@ -1,6 +1,6 @@
 import React,{useEffect} from 'react'
 import style from '../styles/landing.module.css'
-import { useSelector,useDispatch } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import { fetchProducts } from '../store/product/productAction'
 
 function Landing() {

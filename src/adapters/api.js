@@ -1,6 +1,7 @@
 import axios from 'axios'
 const BASE_URL = process.env.REACT_APP_URL
 const PRODUCT_URL = `${BASE_URL}/product`
+const USER_URL = `${BASE_URL}/user`
 
 
 
@@ -8,5 +9,12 @@ const PRODUCT_URL = `${BASE_URL}/product`
 export default {
     getProduct(){
         return axios.get(`${PRODUCT_URL}/get-all-product`);
+    },
+    signUp(payload){
+        return axios({url : `${USER_URL}/signup-customer`,data:payload, method:'POST'});
+    },
+    signIn(payload){
+        return axios({url : `${USER_URL}/login`,data:payload, method:'POST'});
     }
 }
+

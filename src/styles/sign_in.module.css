@@ -5,6 +5,7 @@
     padding: 20px 20px 20px 20px;
 }
 
+
 .signin__inside{
     border: 1px solid white;
     height: 100%;
@@ -12,4 +13,53 @@
     border-radius: 5px;
     display: flex;
     justify-content: center;
+}
+
+
+.signin__inside form {
+    padding-top: 30px;
+    display: flex;
+    width: 30%;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+header h3{
+    text-align: center;
+    color: white;
+    text-align: center;
+    font-size: 25px;
+    font-family: 'Lobster', cursive;
+    margin-bottom: 20px;
+}
+
+
+.box{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+ 
+}
+
+.box input{
+    height: 50px;
+    border: 2px solid white;
+    background: none;
+    border-radius: 5px;
+    padding-left: 20px;
+    color: white;
+    outline: none;
+    width: 100%;
+    margin-bottom: 40px;
+}
+
+.button button {
+    padding: 20px 50px;
+    background: white;
+    color: black;
+    font-weight: bold;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
 }

@@ -20,6 +20,7 @@
     align-items: center;
     justify-content: space-between;
     list-style: none;
+   
 }
 
 .nav ul li {
@@ -36,11 +37,12 @@ a{
 .cart{
     height: 40px;
     width: 150px;
-    border: 1px solid white;
+    /* border: 1px solid white; */
     border-radius: 5px;
     display: flex;
     align-items: center;
     justify-content: center;
+   
 }
 
 
@@ -50,4 +52,20 @@ a{
 
 .cart img{
     height: 20px;
+}
+
+.email p{
+    color: white;
+    font-weight: 500;
+}
+
+.cart__counter{
+    height: 18px;
+    width: 18px;
+    border-radius: 50%;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: black;
 }
