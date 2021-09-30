@@ -1,8 +1,9 @@
 import React,{useState} from 'react'
 import style from '../styles/sign_in.module.css'
 import Loader from '../components/loader';
-import { useDispatch } from 'react-redux'
+import { useDispatch,useSelector } from 'react-redux'
 import { signInUser } from '../store/auth/authAction';
+import { addItemToCart } from '../store/cart/cartActions';
 
 
 
@@ -10,23 +11,42 @@ function SignIn() {
 
     const [email,setEmail] = useState("");
     const [ password,setPassword ] = useState("");
-
     const dispatch = useDispatch();
+    const loading = useSelector((state) => state.authReducer.loading)
 
-    const data = {
-        email : email,
-        password : password
+    
+    function addLocallyStoredProductsToCart(){
+        const addSavedProductsToCart = JSON.parse(localStorage.getItem("savedProducts")).
+        map((i)=>{
+            const payload = {
+                product_id : i.id
+            }  
+            dispatch(addItemToCart(payload));
+        })
     }
 
-    function signIn(e) {
-        e.preventDefault()
-        dispatch(signInUser(data));
+
+    function signIn(e){
+        e.preventDefault();
+        const data = {
+            email : email,
+            password : password
+        }
+        dispatch(signInUser(data))
+        const localCartItems = JSON.parse(localStorage.getItem("savedProducts"))
+        setTimeout(() => {
+            if(localCartItems){
+                addLocallyStoredProductsToCart();
+            }
+            
+        }, 5000);
+        
     }
 
     return (
         <div>
             <div className={style.signin}>
-               <div className={style.signin__inside}>
+                <div className={style.signin__inside}>
                     <form onSubmit={signIn} >
                         <header>
                             <h3>Sign in</h3>
@@ -36,13 +56,10 @@ function SignIn() {
                             <input onChange={(e)=>setPassword(e.target.value)} value={password} placeholder="Password" type="Lastname" />
                         </div>
                         <div className={style.button}>
-                            <button>
-                                <p>Sign in</p>
-                                <Loader />
-                            </button>
+                            <button> { loading ? <Loader /> : <p>Sign in</p> }  </button>
                         </div>
                     </form>
-               </div>
+                </div>
             </div>
         </div>
     )

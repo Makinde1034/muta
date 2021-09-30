@@ -5,6 +5,7 @@ import { Route, Switch } from 'react-router-dom'
 import SignUp from './pages/sign_up';
 import SignIn from './pages/sign_in'
 import ProtectedRoute from './pages/protected_route';
+import Cart from './pages/cart';
 
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
         <Route path='/' exact component={Home}  />
         <ProtectedRoute path='/signup' component={SignUp}  />
         <ProtectedRoute path='/signin' component={SignIn}  />
+        <Route path='/cart' component={Cart} />
       </Switch>
     </div>
   );

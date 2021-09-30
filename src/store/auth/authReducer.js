@@ -4,6 +4,7 @@ const initialState ={
     loading : false,
     status : '',
     user : localStorage.getItem("user") || '',
+    test : []
 
 }
 
