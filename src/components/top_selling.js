@@ -15,16 +15,13 @@ function TopSelling() {
     const token = storage.getToken();
 
     
-    const adddToCart = (id) =>{
+    const adddToCart = (product) =>{
         if(!token){
             const presentItemsStored = JSON.parse(localStorage.getItem("savedProducts")) || []
-            storage.storeProductIdBeforeAuth([...presentItemsStored,{id:id}]); 
+            storage.storeProductIdBeforeAuth([...presentItemsStored,{id:product.id}]); 
             dispatch(addToCart())
-        }else{
-            const payload = {
-                product_id : id
-            }  
-            dispatch(addItemToCart(payload))
+        }else{  
+            dispatch(addItemToCart(product))
         
         }
                              
@@ -34,7 +31,7 @@ function TopSelling() {
     
 
     const top = products.map((i)=>(
-        <div className={style.featured__products__box}>
+        <div key={i.id} className={style.featured__products__box}>
             { loading ?
                 <div>loading</div>
                  :
@@ -44,7 +41,7 @@ function TopSelling() {
                     </div>
                     <p>{i.name}</p>
                     <h2>&#163;{i.price}</h2>
-                    <button onClick={()=>adddToCart(i.id)}>Add to cart</button>
+                    <button onClick={()=>adddToCart(i)}>Add to cart</button>
                 </div> 
             }
             

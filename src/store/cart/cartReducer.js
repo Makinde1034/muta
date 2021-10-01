@@ -1,10 +1,11 @@
-import { ADD_TO_CART,GET_CART,GET_LOCAL_CART } from "./cartType";
+import { ADD_TO_CART,GET_CART,GET_LOCAL_CART,SHOW_TOAST,CLOSE_TOAST } from "./cartType";
 
 
 
 const initialState = {
     savedCartItems : [],
-    authCart : []
+    authCart : [],
+    toastMsg : ''
 }
 
 
@@ -26,6 +27,17 @@ const cartReducer = (state = initialState, action) =>{
             return {
                 ...state,
                 savedCartItems : JSON.parse(localStorage.getItem("savedProducts")) 
+            }
+        case SHOW_TOAST:
+            return {
+                ...state,
+                toastMsg : `you added  ${action.payload} to cart`
+
+            }
+        case CLOSE_TOAST:
+            return {
+                ...state,
+                toastMsg : ''
             }
         default: return state
     

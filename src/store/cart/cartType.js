@@ -1,3 +1,6 @@
 export const ADD_TO_CART = 'ADD_TO_CART'
 export const GET_CART = 'GET_CART'
 export const GET_LOCAL_CART = 'GET_LOCAL_CART'
+export const ADD_TO_CART_FAILURE = 'ADD_TO_CART-FAILURE'
+export const SHOW_TOAST = 'SHOW_TOAST'
+export const CLOSE_TOAST = 'CLOSE_TOAST'

@@ -37,5 +37,16 @@ export default {
             headers: this.getCustomerHeader()
         })
     },
+    deleteFromCart(payload){
+        return axios.post(`${CART_URL}/delete-from-cart`,payload,{
+            headers:this.getCustomerHeader()
+        });
+    },
+
+    removeFromCart(payload){
+        return axios.post(`${CART_URL}/remove-from-cart`,payload,{
+            headers:this.getCustomerHeader()
+        })
+    }
 }
 
