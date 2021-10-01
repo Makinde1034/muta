@@ -2,7 +2,9 @@ import React,{useState} from 'react'
 import style from '../styles/top_selling.module.css'
 import { useSelector,useDispatch } from 'react-redux'
 import storage from '../utils/storage';
-import { addItemToCart,addToCart,showToast,closeToast } from '../store/cart/cartActions';
+import { addItemToCart,addToCart } from '../store/cart/cartActions';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 
@@ -18,12 +20,18 @@ function TopSelling() {
     const adddToCart = (product) =>{
         if(!token){
             const presentItemsStored = JSON.parse(localStorage.getItem("savedProducts")) || []
-            storage.storeProductIdBeforeAuth([...presentItemsStored,{id:product.id,price:product.price,name:product.name,image:product.image}]); 
-            dispatch(addToCart())
-            dispatch(showToast(product.name));
-            setTimeout(() => {
-                dispatch(closeToast());
-            }, 3000);
+
+            const productIsPresent = presentItemsStored.find(i=>i.id===product.id);
+            if(!productIsPresent){
+                storage.storeProductIdBeforeAuth([...presentItemsStored,{id:product.id,price:product.price,name:product.name,image:product.image}]); 
+                dispatch(addToCart())
+                // dispatch(showToast(product.name));
+                toast(`you added ${product.name} to cart`)
+                
+            }else{
+                toast("product is already in cart")
+            }
+            
         }else{  
             dispatch(addItemToCart(product));
         
@@ -31,6 +39,8 @@ function TopSelling() {
                              
 
     }
+
+   
 
     
 
@@ -41,7 +51,7 @@ function TopSelling() {
                  :
                 <div>
                     <div className={style.featured__products__box__img}>
-                    <img src={i.image} alt="product image" /> 
+                    <img  src={i.image} alt="product image" /> 
                     </div>
                     <p>{i.name}</p>
                     <h2>&#163;{i.price}</h2>
@@ -62,6 +72,7 @@ function TopSelling() {
                 <div className={style.topselling__inside}>
                     <div className={style.products}>
                         {top}
+                        <ToastContainer />
                     </div>
                 </div>
             </div>

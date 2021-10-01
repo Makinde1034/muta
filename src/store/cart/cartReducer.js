@@ -5,7 +5,8 @@ import { ADD_TO_CART,GET_CART,GET_LOCAL_CART,SHOW_TOAST,CLOSE_TOAST } from "./ca
 const initialState = {
     savedCartItems : [],
     authCart : [],
-    toastMsg : ''
+    toastMsg : '',
+    price : ''
 }
 
 

@@ -2,6 +2,7 @@
     display: flex;
     justify-content: center;
     padding-top: 50px;
+    padding-bottom: 100px;
 }
 
 .cart__wrap{
@@ -102,4 +103,20 @@
 
 .empty img {
     height: 300px;
+}
+
+.cartBottom img{
+    height: 30px;
+    margin-right: 20px;
+  
+}
+
+.cartBottom__img{
+    margin-top: 30px;
+    display: flex;
+    align-items: center;  cursor: pointer;
+}
+
+.cartBottom p{
+    font-weight: 500;
 }

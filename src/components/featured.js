@@ -2,26 +2,32 @@ import React from 'react'
 import style from '../styles/featured.module.css'
 import { useSelector,useDispatch } from 'react-redux' 
 import storage from '../utils/storage'
-import { addToCart,addItemToCart,showToast,closeToast } from '../store/cart/cartActions'
+import { addToCart,addItemToCart } from '../store/cart/cartActions'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 
 function Featured() {
-    const dispatch = useDispatch()
-    const products = useSelector((state)=>state.productReducer.products)
-    const loading = useSelector((state)=>state.productReducer.loading)
-     const token = storage.getToken();
+    const dispatch = useDispatch();
+    const products = useSelector((state)=>state.productReducer.products);
+    const loading = useSelector((state)=>state.productReducer.loading);
+    const token = storage.getToken();
 
     
     const addProductToCart = (product) =>{
         if(!token){
             const presentItemsStored = JSON.parse(localStorage.getItem("savedProducts")) || []
-            storage.storeProductIdBeforeAuth([...presentItemsStored,{id:product.id,price:product.price,name:product.name,image:product.image}]); 
-            dispatch(addToCart());
-            dispatch(showToast(product.name))
-            setTimeout(() => {
-                dispatch(closeToast());
-            }, 3000);
+
+            const productIsPresent = presentItemsStored.find(i=>i.id===product.id);
+            if(!productIsPresent){
+                storage.storeProductIdBeforeAuth([...presentItemsStored,{id:product.id,price:product.price,name:product.name,image:product.image}]); 
+                dispatch(addToCart());
+                toast(`you added ${product.name} to cart`)
+            }else{
+                toast("product is already in cart");
+            }
+            
         }else{
              
             dispatch(addItemToCart(product));

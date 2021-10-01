@@ -49,8 +49,8 @@ function SignIn() {
                             <h3>Sign in</h3>
                         </header>
                         <div className={style.box}>
-                            <input onChange={(e)=>setEmail(e.target.value)} value={email} placeholder="Email" type="text" />
-                            <input onChange={(e)=>setPassword(e.target.value)} value={password} placeholder="Password" type="Lastname" />
+                            <input onChange={(e)=>setEmail(e.target.value)} required value={email} placeholder="Email" type="email" />
+                            <input onChange={(e)=>setPassword(e.target.value)} required value={password} placeholder="Password" type="password" />
                         </div>
                         <div className={style.button}>
                             <button> { loading ? <Loader /> : <p>Sign in</p> }  </button>
