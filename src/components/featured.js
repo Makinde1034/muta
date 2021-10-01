@@ -2,7 +2,7 @@ import React from 'react'
 import style from '../styles/featured.module.css'
 import { useSelector,useDispatch } from 'react-redux' 
 import storage from '../utils/storage'
-import { addToCart,addItemToCart } from '../store/cart/cartActions'
+import { addToCart,addItemToCart,showToast,closeToast } from '../store/cart/cartActions'
 
 
 
@@ -13,16 +13,18 @@ function Featured() {
      const token = storage.getToken();
 
     
-    const addProductToCart = (id) =>{
+    const addProductToCart = (product) =>{
         if(!token){
             const presentItemsStored = JSON.parse(localStorage.getItem("savedProducts")) || []
-            storage.storeProductIdBeforeAuth([...presentItemsStored,{id:id}]); 
-            dispatch(addToCart())
+            storage.storeProductIdBeforeAuth([...presentItemsStored,{id:product.id}]); 
+            dispatch(addToCart());
+            dispatch(showToast(product.name))
+            setTimeout(() => {
+                dispatch(closeToast());
+            }, 3000);
         }else{
-            const payload = {
-                product_id : id
-            }  
-            dispatch(addItemToCart(payload))
+             
+            dispatch(addItemToCart(product));
         
         }
                              
@@ -38,7 +40,7 @@ function Featured() {
             </div>
             <p>{i.name}</p>
             <h2>&#163;{i.price}</h2>
-            <button onClick={()=>addProductToCart(i.id)} >Add to cart</button>
+            <button onClick={()=>addProductToCart(i)} >Add to cart</button>
         </div>
     ))
 

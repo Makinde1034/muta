@@ -2,7 +2,7 @@ import React,{useState} from 'react'
 import style from '../styles/top_selling.module.css'
 import { useSelector,useDispatch } from 'react-redux'
 import storage from '../utils/storage';
-import { addItemToCart,addToCart } from '../store/cart/cartActions';
+import { addItemToCart,addToCart,showToast,closeToast } from '../store/cart/cartActions';
 
 
 
@@ -20,8 +20,12 @@ function TopSelling() {
             const presentItemsStored = JSON.parse(localStorage.getItem("savedProducts")) || []
             storage.storeProductIdBeforeAuth([...presentItemsStored,{id:product.id}]); 
             dispatch(addToCart())
+            dispatch(showToast(product.name));
+            setTimeout(() => {
+                dispatch(closeToast());
+            }, 3000);
         }else{  
-            dispatch(addItemToCart(product))
+            dispatch(addItemToCart(product));
         
         }
                              

@@ -17,11 +17,8 @@ function SignIn() {
     
     function addLocallyStoredProductsToCart(){
         const addSavedProductsToCart = JSON.parse(localStorage.getItem("savedProducts")).
-        map((i)=>{
-            const payload = {
-                product_id : i.id
-            }  
-            dispatch(addItemToCart(payload));
+        map((product)=>{
+            dispatch(addItemToCart(product));
         })
     }
 

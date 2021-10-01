@@ -21,7 +21,7 @@ function Landing() {
             <div className={style.landing__inside}>
                 <h3>Awesome clothing collection</h3>
                 <h3>Handmade cottons.</h3>
-                <button>Shop Now</button>
+                <p>The elegant fashion store</p>
             </div>
 
         </div>

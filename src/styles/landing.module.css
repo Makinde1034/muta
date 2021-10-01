@@ -21,10 +21,17 @@
 }
 
 .landing__inside h3{
-    font-size: 40px;
+    font-size: 50px;
     color: white;
     font-family: 'Ubuntu', sans-serif;
 }
+
+.landing p{
+    font-size: 18px;
+    color: white;
+    font-weight: 500;
+}
+
 
 .landing__inside button {
     padding: 20px 50px ;
