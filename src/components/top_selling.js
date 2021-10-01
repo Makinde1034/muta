@@ -18,7 +18,7 @@ function TopSelling() {
     const adddToCart = (product) =>{
         if(!token){
             const presentItemsStored = JSON.parse(localStorage.getItem("savedProducts")) || []
-            storage.storeProductIdBeforeAuth([...presentItemsStored,{id:product.id}]); 
+            storage.storeProductIdBeforeAuth([...presentItemsStored,{id:product.id,price:product.price,name:product.name,image:product.image}]); 
             dispatch(addToCart())
             dispatch(showToast(product.name));
             setTimeout(() => {
