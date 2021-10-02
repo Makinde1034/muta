@@ -51,7 +51,7 @@ function Nav() {
                 <div className={style.email}>
                     { user !=='' ? <p>{ JSON.parse(user).email }</p> : '' }
                 </div>
-                <p style={{color:"white",fontWeight:"bold",cursor:"pointer"}} onClick={logOut} >Log out</p>
+                { user !== '' && <p style={{color:"white",fontWeight:"bold",cursor:"pointer"}} onClick={logOut} >Log out</p>}
             </ul>
             
         </nav>

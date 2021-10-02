@@ -64,7 +64,7 @@ function SignUp() {
                             <input onChange={(e)=>setLastName(e.target.value)} value={lastName} placeholder="Lastname" type="Lastname" />
                         </div>
                         <div className={style.box}>
-                            <input onChange={(e)=>setEmail(e.target.value)} value={email} placeholder="Email" type="text" />
+                            <input onChange={(e)=>setEmail(e.target.value)} value={email} placeholder="Email" type="email" />
                             <input onChange={(e)=>setPhoneNumber(e.target.value)} value={phoneNumber} placeholder="phonenumber" type="number" />
                         </div>
                         <div className={style.address}>
@@ -73,8 +73,8 @@ function SignUp() {
                             <input  onChange={(e)=>setState(e.target.value)} value={state} placeholder="State" type="text" />
                         </div>
                         <div className={style.box}>
-                            <input onChange={(e)=>setPassword(e.target.value)} value={password} placeholder="Password" type="text" />
-                            <input  onChange={(e)=>setConfirmPassword(e.target.value)} value={confirmPassword} placeholder="Confirm password" type="Lastname" />
+                            <input onChange={(e)=>setPassword(e.target.value)} value={password} placeholder="Password" type="password" />
+                            <input  onChange={(e)=>setConfirmPassword(e.target.value)} value={confirmPassword} placeholder="Confirm password" type="password" />
                         </div>
                         <div className={style.button}>
                             <button> { loading ? <Loader /> : 'Sign up' }</button>
