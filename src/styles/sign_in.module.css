@@ -63,3 +63,13 @@ header h3{
     border: none;
     cursor: pointer;
 }
+
+
+.error p{
+    text-align: center;
+    color: white;
+    font-weight: 500;
+    margin-top: 10px;
+    font-size: 14px;
+    font-family: sans-serif;
+}

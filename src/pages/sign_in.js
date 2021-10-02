@@ -12,7 +12,8 @@ function SignIn() {
     const [email,setEmail] = useState("");
     const [ password,setPassword ] = useState("");
     const dispatch = useDispatch();
-    const loading = useSelector((state) => state.authReducer.loading)
+    const loading = useSelector((state) => state.authReducer.loading);
+    const status = useSelector((state)=>state.authReducer.status)
 
     
     function addLocallyStoredProductsToCart(){
@@ -54,6 +55,9 @@ function SignIn() {
                         </div>
                         <div className={style.button}>
                             <button> { loading ? <Loader /> : <p>Sign in</p> }  </button>
+                        </div>
+                        <div className={style.error}>
+                            { status=='error' ? <p>An error occured while trying to sign up. Please try again.</p> : '' }
                         </div>
                     </form>
                 </div>
