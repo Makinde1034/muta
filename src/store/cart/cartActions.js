@@ -1,4 +1,4 @@
-import { ADD_TO_CART, GET_CART, GET_LOCAL_CART, ADD_TO_CART_FAILURE, SHOW_TOAST, CLOSE_TOAST, DELETE_FROM_CART } from "./cartType";
+import { ADD_TO_CART, GET_CART, GET_LOCAL_CART, ADD_TO_CART_FAILURE, SHOW_TOAST, CLOSE_TOAST, DELETE_FROM_CART,GET_TOTAL_PRICE } from "./cartType";
 import api from "../../adapters/api";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -28,6 +28,13 @@ export const getLocalCart = () =>{
 export const deleteFromCart = () =>{
     return {
         type : DELETE_FROM_CART
+    }
+}
+
+export const getTotalPrice = (price) =>{
+    return {
+        type : GET_TOTAL_PRICE,
+        payload : price
     }
 }
 
@@ -86,13 +93,25 @@ export const increament = (data) => {
 export const deleteItemFromCart = (data) =>{
     return (dispatch) => {
         api.deleteFromCart(data).then((res)=>{
-            console.log(res)
+            console.log(res,'deleted from cart');
             dispatch(getRecentCart());
         }).catch(err=>{
             console.log(err,"err while delting from cart");
         })
     }
 }
+
+// Remove from cart 
+export const removeFromCart = (data) => {
+    return (dispatch) => {
+        api.removeFromCart(data).then((res)=>{
+            console.log(res,'you remove product from cart');
+            dispatch(getRecentCart());
+        })
+    }
+}
+
+
 
 // Update cart
 export const getRecentCart = () =>{
@@ -102,6 +121,8 @@ export const getRecentCart = () =>{
             console.log(res,'you got cart');
             const{data:{data}} = res
             dispatch(getCart(data.cart.items))
+            dispatch(getTotalPrice(data.cart.total_price))
+            console.log(data.cart.total_price)
         })
     }
 }
@@ -111,3 +132,4 @@ export const getRecentCartFromLocalStorage = () =>{
         dispatch(getLocalCart())
     }
 }
+

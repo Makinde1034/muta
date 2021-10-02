@@ -105,6 +105,12 @@
     height: 300px;
 }
 
+.cartBottom{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
 .cartBottom img{
     height: 30px;
     margin-right: 20px;
@@ -115,6 +121,9 @@
     margin-top: 30px;
     display: flex;
     align-items: center;  cursor: pointer;
+}
+.cartBottom__price p{
+    font-weight: 500;
 }
 
 .cartBottom p{

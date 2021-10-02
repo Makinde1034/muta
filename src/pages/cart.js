@@ -7,13 +7,15 @@ import emptyCrt from '../assets/empty.svg'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import backArrow from '../assets/left-arrow (1).png'
-import { deleteItemFromCart,increament } from '../store/cart/cartActions';  
+import { deleteItemFromCart,increament,removeFromCart } from '../store/cart/cartActions';  
 import { Link } from 'react-router-dom';    
 
 function Cart() {
     const dispatch = useDispatch()
     const cartItems = useSelector((state) =>state.cartReducer.authCart);
     const savedCartItems = useSelector((state)=>state.cartReducer.savedCartItems) || []
+    const totalPrice = useSelector((state)=>state.cartReducer.price);
+    console.log(totalPrice,'total price here')
     const token = storage.getToken()
 
 
@@ -29,6 +31,13 @@ function Cart() {
             product_id : id
         }
         dispatch(increament(data))
+    }
+
+    const decrease = (id) =>{
+        const data = {
+            product_id : id 
+        }
+        dispatch(removeFromCart(data))
     }
     
 
@@ -52,7 +61,7 @@ function Cart() {
                                                 <div className={style.quantity}>
                                                     <button onClick={()=>increaseQuty(i.id)} className={style.increase}>+</button>
                                                     <div>{i.quantity}</div>
-                                                    <button className={style.decrease}>-</button>
+                                                    <button onClick={()=>decrease(i.id)} className={style.decrease}>-</button>
                                                 </div>
                                                 <div className={style.delete}>
                                                     <img onClick={()=>deleteItem(i.id)} src={del} alt="" />
@@ -117,9 +126,11 @@ function Cart() {
 
                         <div className={style.cartBottom__img}>
                             <img src={backArrow} alt="" />
-                            <p>Goback to shop</p>  
+                            <p>Go back to shop</p>  
                         </div>
-                        <div className="price">{}</div>
+                        <div className={style.cartBottom__price}>
+                            <p>&#163;{totalPrice}</p>
+                        </div>
                     </div>
                 </div>
             </div>

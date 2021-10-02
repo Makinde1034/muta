@@ -1,4 +1,4 @@
-import { ADD_TO_CART,GET_CART,GET_LOCAL_CART,SHOW_TOAST,CLOSE_TOAST } from "./cartType";
+import { ADD_TO_CART,GET_CART,GET_LOCAL_CART,SHOW_TOAST,CLOSE_TOAST,GET_TOTAL_PRICE } from "./cartType";
 
 
 
@@ -39,6 +39,11 @@ const cartReducer = (state = initialState, action) =>{
             return {
                 ...state,
                 toastMsg : ''
+            }
+        case GET_TOTAL_PRICE:
+            return {
+                ...state,
+                price : action.payload 
             }
         default: return state
     
