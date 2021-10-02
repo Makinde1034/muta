@@ -72,7 +72,11 @@ function TopSelling() {
                 <div className={style.topselling__inside}>
                     <div className={style.products}>
                         {top}
-                        <ToastContainer />
+                        <ToastContainer
+                        autoClose={3000}
+                        hideProgressBar
+                        pauseOnFocusLoss={false}
+                        />
                     </div>
                 </div>
             </div>

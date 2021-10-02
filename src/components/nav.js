@@ -26,6 +26,11 @@ function Nav() {
         
     }, [])
 
+    function logOut(){
+        localStorage.clear()
+        window.location.reload(false)
+    }
+
     return (
         <nav className={style.nav}>
             <div className={style.nav__logo}>
@@ -46,7 +51,7 @@ function Nav() {
                 <div className={style.email}>
                     { user !=='' ? <p>{ JSON.parse(user).email }</p> : '' }
                 </div>
-                <p style={{color:"white",fontWeight:"bold",cursor:"pointer"}}>Log out</p>
+                <p style={{color:"white",fontWeight:"bold",cursor:"pointer"}} onClick={logOut} >Log out</p>
             </ul>
             
         </nav>

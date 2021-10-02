@@ -50,7 +50,7 @@ export const signInUser = (payload) =>{
             console.log(res)
             storage.setToken(res.data.data.token);
             storage.setUserDetails(res.data.data.user);
-            toast(`welcome ${res.data.user.fisrt_name}`)
+            toast(`welcome ${res.data.data.user.first_name}`)
             dispatch(authSuccess());
             dispatch(getRecentCart())
 

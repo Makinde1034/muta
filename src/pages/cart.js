@@ -7,7 +7,8 @@ import emptyCrt from '../assets/empty.svg'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import backArrow from '../assets/left-arrow (1).png'
-import { deleteItemFromCart,increament } from '../store/cart/cartActions';      
+import { deleteItemFromCart,increament } from '../store/cart/cartActions';  
+import { Link } from 'react-router-dom';    
 
 function Cart() {
     const dispatch = useDispatch()
@@ -113,6 +114,7 @@ function Cart() {
                         : ''
                     }
                     <div className={style.cartBottom}>
+
                         <div className={style.cartBottom__img}>
                             <img src={backArrow} alt="" />
                             <p>Goback to shop</p>  
