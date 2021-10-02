@@ -53,7 +53,11 @@ function Nav() {
                 </div>
                 { user !== '' && <p style={{color:"white",fontWeight:"bold",cursor:"pointer"}} onClick={logOut} >Log out</p>}
             </ul>
-            
+            <div className={style.menu}>
+                <div className={style.line}></div>
+                <div className={style.line}></div>
+                <div className={style.line}></div>
+            </div>
         </nav>
     )
 }

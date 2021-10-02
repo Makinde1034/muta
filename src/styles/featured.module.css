@@ -128,3 +128,36 @@
     cursor: pointer;
 }
 
+@media screen and (max-width:760px) {
+    .featured__inside{
+        flex-direction: column;
+        align-items: center;
+        /* background: red; */
+        
+    }
+
+    .featured__inside__left{
+        padding-left: 20px;
+        padding-right: 20px;
+        width: 100%;
+        
+        
+    }
+
+    .featured__products{
+        flex-direction: column;
+        align-items: center;
+       
+        
+    }
+
+    .featured__products__box{
+        max-width: 300px;
+        width: 100%;
+        margin-bottom: 50px;
+    }
+
+    .featured__inside__right{
+        width: 100%;
+    }
+}

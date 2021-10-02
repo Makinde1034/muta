@@ -1,3 +1,5 @@
+
+
 .landing{
     height: 92vh;
     background-color: #2D1D28;
@@ -43,4 +45,11 @@
     margin-top: 30px;
     font-size: 18px;
     cursor: pointer;
+}
+
+
+@media screen and (max-width:760px) {
+    .landing__inside h3{
+        font-size: 20px;
+    }
 }
