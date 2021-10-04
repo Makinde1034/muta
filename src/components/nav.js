@@ -62,7 +62,9 @@ function Nav() {
             </ul>
             <div className={style.mobileCart}>
                 <img src={cart} alt="" />
-                <div className={style.cart__counter}>{ user !== '' ?  authCart.length : savedCartItems.length }</div>
+                <div className={style.cart__counter__mobile}>
+                    <p>{ user !== '' ?  authCart.length : savedCartItems.length }</p>
+                </div>
             </div>
             <div onClick={toggleSideNav} className={style.menu}>
                 <div className={style.line}></div>

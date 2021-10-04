@@ -88,6 +88,22 @@
 
 }
 
+.cart__counter__mobile{
+    height: 18px;
+    width: 18px;
+    border-radius: 50%;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: black;
+}
+
+.cart__counter__mobile p{
+    font-size: 12px;
+    font-weight: 800px;
+}
+
 @media screen and (max-width:760px) {
     .nav ul {
         display: none;
