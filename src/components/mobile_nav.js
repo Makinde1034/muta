@@ -10,10 +10,16 @@ function MobileNav() {
 
     const dispatch = useDispatch();
     const isNavOpen = useSelector((state)=>state.mobileReducer.isNavOpen);
+    const token = localStorage.getItem("token");
 
     // close mobile nav
     function closeMobileNav(){
         dispatch(closeNav());
+    }
+
+     function logOut(){
+        localStorage.clear()
+        window.location.reload(false)
     }
 
     return (
@@ -30,7 +36,7 @@ function MobileNav() {
                     <Link onClick={()=>dispatch(closeNav())} className={style.link} to='/signup'>Sign up</Link>
                     <Link onClick={()=>dispatch(closeNav())} className={style.link} to='/'>Home</Link>      
                 </ul>
-                <button className={style.button}>Logout</button>
+                { token ? <button onClick={logOut} className={style.button}>Logout</button> : '' }
             </div>
         </div>
     )
