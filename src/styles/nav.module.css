@@ -82,6 +82,12 @@
     margin-bottom: 3px;
 }
 
+.mobileCart{
+    visibility: hidden;
+    display: flex;
+
+}
+
 @media screen and (max-width:760px) {
     .nav ul {
         display: none;
@@ -89,5 +95,13 @@
 
     .menu{
         display: block;
+    }
+
+    .mobileCart{
+        visibility: visible;
+    }
+
+    .mobileCart img{
+        height: 20px;
     }
 }

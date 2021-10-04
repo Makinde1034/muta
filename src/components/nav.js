@@ -60,6 +60,10 @@ function Nav() {
                 </div>
                 { user !== '' && <p style={{color:"white",fontWeight:"bold",cursor:"pointer"}} onClick={logOut} >Log out</p>}
             </ul>
+            <div className={style.mobileCart}>
+                <img src={cart} alt="" />
+                <div className={style.cart__counter}>{ user !== '' ?  authCart.length : savedCartItems.length }</div>
+            </div>
             <div onClick={toggleSideNav} className={style.menu}>
                 <div className={style.line}></div>
                 <div className={style.line}></div>
