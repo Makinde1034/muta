@@ -65,6 +65,14 @@
     cursor: pointer;
 }
 
+footer{
+    padding-bottom: 30px;
+}
+
+footer p{
+    text-align: center;
+}
+
 @media screen and (max-width:760px) {
     
     .topselling__inside{

@@ -80,6 +80,9 @@ function TopSelling() {
                     </div>
                 </div>
             </div>
+            <footer>
+                <p>Muta	&#169;</p>
+            </footer>
         </div>
     )
 }
