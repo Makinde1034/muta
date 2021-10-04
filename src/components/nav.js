@@ -46,9 +46,9 @@ function Nav() {
                 </Link>
             </div>
             <ul>
-                { user !== '' ? '' : <Link to="/signin">Sign in</Link> }
-                { user !== '' ? '' : <Link to="/signup">Sign up</Link> }
-                <Link to='/cart'>
+                { user !== '' ? '' : <Link className={style.link} to="/signin">Sign in</Link> }
+                { user !== '' ? '' : <Link className={style.link} to="/signup">Sign up</Link> }
+                <Link className={style.link} to='/cart'>
                     <li className={style.cart}>
                         <img src={cart} alt="" />
                         <div className={style.cart__counter}>{ user !== '' ?  authCart.length : savedCartItems.length }</div>

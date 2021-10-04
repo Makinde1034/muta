@@ -3,6 +3,7 @@ import style from '../styles/mobile_nav.module.css'
 import cancel from '../assets/cancel.svg'
 import {useSelector,useDispatch} from 'react-redux'
 import { closeNav } from '../store/mobile/actions'
+import {Link} from 'react-router-dom'
 
 
 function MobileNav() {
@@ -25,10 +26,9 @@ function MobileNav() {
                     <img onClick={closeMobileNav} src={cancel} alt="" />
                 </div>
                 <ul>
-                    <li>Home</li>
-                    <li>Sign up</li>
-                    <li>Sign in</li>
-                        
+                    <Link onClick={()=>dispatch(closeNav())} className={style.link} to='/signin'>Sign in</Link>
+                    <Link onClick={()=>dispatch(closeNav())} className={style.link} to='/signup'>Sign up</Link>
+                    <Link onClick={()=>dispatch(closeNav())} className={style.link} to='/'>Home</Link>      
                 </ul>
                 <button className={style.button}>Logout</button>
             </div>

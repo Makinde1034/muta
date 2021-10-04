@@ -60,21 +60,21 @@ function SignUp() {
                             <h3>Sign Up {userDetails.lastname}</h3>
                         </header>
                         <div className={style.box}>
-                            <input onChange={(e)=>setFirstName(e.target.value)} value={firstName} placeholder="Firstname" type="text" />
-                            <input onChange={(e)=>setLastName(e.target.value)} value={lastName} placeholder="Lastname" type="Lastname" />
+                            <input required onChange={(e)=>setFirstName(e.target.value)} value={firstName} placeholder="Firstname" type="text" />
+                            <input required onChange={(e)=>setLastName(e.target.value)} value={lastName} placeholder="Lastname" type="Lastname" />
                         </div>
                         <div className={style.box}>
-                            <input onChange={(e)=>setEmail(e.target.value)} value={email} placeholder="Email" type="email" />
-                            <input onChange={(e)=>setPhoneNumber(e.target.value)} value={phoneNumber} placeholder="phonenumber" type="number" />
+                            <input required onChange={(e)=>setEmail(e.target.value)} value={email} placeholder="Email" type="email" />
+                            <input required onChange={(e)=>setPhoneNumber(e.target.value)} value={phoneNumber} placeholder="phonenumber" type="number" />
                         </div>
                         <div className={style.address}>
-                            <input  onChange={(e)=>setStreet(e.target.value)} value={street} placeholder="Street" type="text" />
-                            <input  onChange={(e)=>setLga(e.target.value)} value={lga} placeholder="LGA" type="text" />
-                            <input  onChange={(e)=>setState(e.target.value)} value={state} placeholder="State" type="text" />
+                            <input required  onChange={(e)=>setStreet(e.target.value)} value={street} placeholder="Street" type="text" />
+                            <input required onChange={(e)=>setLga(e.target.value)} value={lga} placeholder="LGA" type="text" />
+                            <input required onChange={(e)=>setState(e.target.value)} value={state} placeholder="State" type="text" />
                         </div>
                         <div className={style.box}>
-                            <input onChange={(e)=>setPassword(e.target.value)} value={password} placeholder="Password" type="password" />
-                            <input  onChange={(e)=>setConfirmPassword(e.target.value)} value={confirmPassword} placeholder="Confirm password" type="password" />
+                            <input required onChange={(e)=>setPassword(e.target.value)} value={password} placeholder="Password" type="password" />
+                            <input required  onChange={(e)=>setConfirmPassword(e.target.value)} value={confirmPassword} placeholder="Confirm password" type="password" />
                         </div>
                         <div className={style.button}>
                             <button> { loading ? <Loader /> : 'Sign up' }</button>

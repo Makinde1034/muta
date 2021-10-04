@@ -98,14 +98,21 @@
     .signup{
         overflow: auto;
         
+        
     }
 
     .signup__inside form{
         width: 100%;
+        
+    }
+
+    .signup__inside form button {
+        margin-bottom: 30px;
     }
 
     .signup__inside{
         border: none;
+        
     }
 
     .box{

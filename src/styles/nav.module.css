@@ -11,7 +11,7 @@
 .nav__logo h3{
     color: white;
     font-size: 25px;
-    font-family: 'Lobster', cursive;
+    font-family: 'Ubuntu', sans-serif;
 }
 
 .nav ul {
@@ -29,7 +29,7 @@
     cursor: pointer;
 }
 
-a{
+.link{
     color: white;
     text-decoration: none;
 }
@@ -76,7 +76,7 @@ a{
 }
 
 .line{
-    height: 3px;
+    height: 2px;
     width: 30px;
     background: white;
     margin-bottom: 3px;
