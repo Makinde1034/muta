@@ -41,7 +41,7 @@ function Nav() {
     return (
         <nav className={style.nav}>
             <div className={style.nav__logo}>
-                <Link to='/'>
+                <Link style={{textDecoration:"none"}} to='/'>
                     <h3>MUTA </h3>
                 </Link>
             </div>
