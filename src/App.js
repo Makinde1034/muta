@@ -6,6 +6,7 @@ import SignUp from './pages/sign_up';
 import SignIn from './pages/sign_in'
 import ProtectedRoute from './pages/protected_route';
 import Cart from './pages/cart';
+import MobileNav from './components/mobile_nav';
 
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
         <ProtectedRoute path='/signin' component={SignIn}  />
         <Route path='/cart' component={Cart} />
       </Switch>
+      <MobileNav />
     </div>
   );
   

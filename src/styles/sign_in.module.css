@@ -73,3 +73,12 @@ header h3{
     font-size: 14px;
     font-family: sans-serif;
 }
+
+@media screen and (max-width:760px) {
+    
+    .signin__inside form {
+        width: 100%;
+    }
+
+    .signin__inside{border: none;}
+}

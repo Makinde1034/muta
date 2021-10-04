@@ -6,6 +6,7 @@ import { useSelector,useDispatch } from 'react-redux'
 import storage from '../utils/storage'
 import api from '../adapters/api'
 import { getRecentCart, getRecentCartFromLocalStorage } from '../store/cart/cartActions'
+import { toggleNav } from '../store/mobile/actions'
 
 function Nav() {
 
@@ -15,6 +16,7 @@ function Nav() {
     const status = useSelector((state)=>state.authReducer.status);
     const savedCartItems = useSelector((state)=>state.cartReducer.savedCartItems) || []
     const authCart = useSelector((state) => state.cartReducer.authCart) || []
+    const isNavOpen = useSelector((state)=>state.mobileReducer.isNavOpen);
 
     // function getCart(){
     //     return savedCartItems
@@ -29,6 +31,11 @@ function Nav() {
     function logOut(){
         localStorage.clear()
         window.location.reload(false)
+    }
+
+    // toggle nav
+    function toggleSideNav(){
+        dispatch(toggleNav())
     }
 
     return (
@@ -53,7 +60,7 @@ function Nav() {
                 </div>
                 { user !== '' && <p style={{color:"white",fontWeight:"bold",cursor:"pointer"}} onClick={logOut} >Log out</p>}
             </ul>
-            <div className={style.menu}>
+            <div onClick={toggleSideNav} className={style.menu}>
                 <div className={style.line}></div>
                 <div className={style.line}></div>
                 <div className={style.line}></div>

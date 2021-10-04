@@ -71,6 +71,10 @@ a{
     color: black;
 }
 
+.menu{
+    display: none;
+}
+
 .line{
     height: 3px;
     width: 30px;
@@ -81,5 +85,9 @@ a{
 @media screen and (max-width:760px) {
     .nav ul {
         display: none;
+    }
+
+    .menu{
+        display: block;
     }
 }
