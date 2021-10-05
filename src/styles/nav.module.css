@@ -84,7 +84,7 @@
 
 .mobileCart{
     visibility: hidden;
-    display: flex;
+    display: none;
 
 }
 
@@ -115,6 +115,7 @@
 
     .mobileCart{
         visibility: visible;
+        display: flex;
     }
 
     .mobileCart img{
