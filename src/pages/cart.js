@@ -66,7 +66,7 @@ function Cart() {
                                                 <div className={style.delete}>
                                                     <img onClick={()=>deleteItem(i.id)} src={del} alt="" />
                                                 </div>
-                                                <div className={style.price}>&#163;{i.price}</div>
+                                                <div className={style.price}>&#163;{Math.round(i.price)}</div>
                                             </div>
                                         ))
 
@@ -129,7 +129,7 @@ function Cart() {
                             <p>Go back to shop</p>  
                         </div>
                         <div className={style.cartBottom__price}>
-                            <p>&#163;{totalPrice}</p>
+                            <p>&#163;{ Math.ceil(totalPrice) }</p>
                         </div>
                     </div>
                 </div>

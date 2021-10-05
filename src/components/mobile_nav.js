@@ -32,9 +32,9 @@ function MobileNav() {
                     <img onClick={closeMobileNav} src={cancel} alt="" />
                 </div>
                 <ul>
-                    <Link onClick={()=>dispatch(closeNav())} className={style.link} to='/signin'>Sign in</Link>
-                    <Link onClick={()=>dispatch(closeNav())} className={style.link} to='/signup'>Sign up</Link>
-                    <Link onClick={()=>dispatch(closeNav())} className={style.link} to='/'>Home</Link>      
+                    { !token && <Link onClick={()=>dispatch(closeNav())} className={style.link} to='/signin'>Sign in</Link> }
+                    { !token && <Link onClick={()=>dispatch(closeNav())} className={style.link} to='/signup'>Sign up</Link> }
+                     <Link onClick={()=>dispatch(closeNav())} className={style.link} to='/'>Home</Link> 
                 </ul>
                 { token ? <button onClick={logOut} className={style.button}>Logout</button> : '' }
             </div>
