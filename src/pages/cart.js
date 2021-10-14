@@ -112,7 +112,7 @@ function Cart() {
                                         ))
 
                                     }
-                                </div>:
+                                </div> :
                                 <div className={style.empty}>
                                     <img src={emptyCrt} alt="" />
                                     <h3>Your cart is empty.</h3>
