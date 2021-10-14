@@ -5,6 +5,7 @@ import storage from '../utils/storage';
 import { addItemToCart,addToCart } from '../store/cart/cartActions';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import {Link} from 'react-router-dom'
 
 
 
@@ -51,7 +52,10 @@ function TopSelling() {
                  :
                 <div>
                     <div className={style.featured__products__box__img}>
-                    <img  src={i.image} alt="product image" /> 
+                    <Link to={`/product/${i.id}`} >
+                        <img  src={i.image} alt="product image" /> 
+                    </Link>
+                    
                     </div>
                     <p>{i.name}</p>
                     <h2>&#163;{i.price}</h2>
