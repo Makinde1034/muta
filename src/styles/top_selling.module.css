@@ -36,7 +36,11 @@
 .featured__products__box p{
     font-size: 16px;
     font-weight: 700;
+    margin-top: 20px;
 }
+
+
+
 
 .featured__products__box__img{
     width: 100%;

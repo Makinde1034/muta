@@ -51,14 +51,15 @@ function TopSelling() {
                 <div>loading</div>
                  :
                 <div>
-                    <div className={style.featured__products__box__img}>
-                    <Link to={`/product/${i.id}`} >
-                        <img  src={i.image} alt="product image" /> 
+                    <Link  to={`/product/${i.id}`}>
+                        <div className={style.featured__products__box__img}>
+                      
+                            <img  src={i.image} alt="product image" /> 
+                        </div>
                     </Link>
                     
-                    </div>
                     <p>{i.name}</p>
-                    <h2>&#163;{i.price}</h2>
+                    <h2 >&#163;{i.price}</h2>
                     <button onClick={()=>adddToCart(i)}>Add to cart</button>
                 </div> 
             }
