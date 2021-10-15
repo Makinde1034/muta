@@ -4,13 +4,13 @@ import { useSelector } from 'react-redux'
 
 export const  ProtectedRoute = ({component : Component,...rest }) => {
    
-    const token = localStorage.getItem("token")
+    const user = useSelector((state)=>state.authReducer.user)
 
     return (
         <Route {...rest}
             render={
                 props => {
-                    if(token === ''){
+                    if(user === ''){
                         return <Component {...props} />
                     }
                     else{

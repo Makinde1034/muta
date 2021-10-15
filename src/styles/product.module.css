@@ -39,6 +39,7 @@
 .product h3{
     font-size: 30px;
     margin-top: 20px;
+    text-align: center;
 }
 
 .product p{
@@ -51,7 +52,7 @@
 
 .product button{
     padding: 20px;
-    margin-top: 10px;
+    margin-top: 20px;
      background-color: #814D1F;
     border: none;
     color: white;
@@ -59,4 +60,16 @@
     font-family: sans-serif;
     cursor: pointer;
     border-radius: 5px;
+}
+
+@media screen and (max-width:760px) {
+    .product{
+        padding-left: 20px;
+        padding-right: 20px;
+        padding-bottom: 50px;
+      
+    }
+   .product p{
+       width: 100%;
+   }
 }
